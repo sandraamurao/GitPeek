@@ -1,0 +1,14 @@
+@reference "tailwindcss";
+
+.search-input {
+	border: white 1px solid;
+	border-radius: 7px;
+	max-width: 700px;
+	width: 100%;
+	padding: 10px;
+}
+
+.form-container {
+	@apply flex flex-row justify-center items-center gap-8 pr-8 pl-8;
+}
+

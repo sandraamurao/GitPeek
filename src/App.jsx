@@ -1,35 +1,59 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
+import SearchBar from "./components/SearchBar";
 
 function App() {
-  const [count, setCount] = useState(0)
+	const [gitUser, setUser] = useState("");
+	const [gitUserRepos, setUserRepos] = useState("");
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	const searchUser = async (username) => {
+		const response = await fetch(`https://api.github.com/users/${username}`);
+		const data = await response.json();
+		console.log(data);
+
+		// Get necessary data only
+		const user = {
+			id: data.id,
+			name: data.name,
+			username: data.login,
+			userUrl: data.url,
+			followers: data.followers,
+			following: data.following,
+			reposUrl: data.url,
+			publicRepos: data.public_repos, // number of public repos
+		};
+		console.log("user", user);
+
+		setUser(user);
+	};
+
+	const getUserRepos = () => {};
+	console.log("gitUser", gitUser);
+
+	return (
+		<div className="app-container">
+			{/* Header */}
+			<div className="flex flex-col items-center justify-center p-6">
+				<h1 className="text-[45px]"> git.peek </h1>
+				<p className="mt-4">
+					{" "}
+					Search for any GitbHub user to view their profile and
+					repositories{" "}
+				</p>
+			</div>
+
+			{/* Search Bar */}
+			<SearchBar submitSearch={searchUser}></SearchBar>
+
+			{/* Start searching message */}
+
+			{/* User name, full name, git url */}
+
+			{/* num of repos, followers, following */}
+
+			{/* top repos */}
+		</div>
+	);
 }
 
-export default App
+export default App;
