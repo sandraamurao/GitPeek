@@ -1,7 +1,7 @@
 function ProfileCard({ gitUser }) {
 	return (
 		<div
-			className="flex flex-row items-start gap-8 border max-[500px]:flex-col max-[500px]:items-center p-5">
+			className="flex flex-row items-start gap-8 border max-[500px]:flex-col max-[500px]:items-center p-5 mb-15">
 			<img
 				src={gitUser.avatarUrl}
 				className="w-32 h-32

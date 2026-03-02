@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import SearchBar from "./components/SearchBar";
 import ProfileCard from "./components/ProfileCard";
+import StatsRow from "./components/StatsRow";
 
 function App() {
 	const [gitUser, setUser] = useState("");
@@ -24,7 +25,7 @@ function App() {
 			// Get necessary data only
 			const user = {
 				id: data.id,
-        avatarUrl: data.avatar_url,
+				avatarUrl: data.avatar_url,
 				name: data.name,
 				username: data.login,
 				userUrl: data.html_url,
@@ -51,9 +52,8 @@ function App() {
 			<div className="flex flex-col items-center justify-center p-6">
 				<h1 className="text-[45px]"> git.peek </h1>
 				<p className="mt-4">
-					{" "}
 					Search for any GitbHub user to view their profile and
-					repositories{" "}
+					repositories
 				</p>
 			</div>
 
@@ -61,15 +61,19 @@ function App() {
 			<SearchBar submitSearch={searchUser}></SearchBar>
 
 			{/* If user not found message */}
-			  {errorRequest && <div> Are you sure this dude exists? ;/ </div>}
-			
-      {/* User name, full name, git url (ProfileCard) */}
-       {gitUser && <ProfileCard gitUser={gitUser}></ProfileCard>}
-        
+			{errorRequest && <div> Are you sure this dude exists? ;/ </div>}
 
-			{/* num of repos, followers, following (StatsRow) */}
+			{gitUser && (
+				<div>
+					{/* User name, full name, git url (ProfileCard) */}
+					<ProfileCard gitUser={gitUser}></ProfileCard>
 
-			{/* top repos */}
+					{/* num of repos, followers, following (StatsRow) */}
+					<StatsRow gitUser={gitUser}></StatsRow>
+
+					{/* top repos */}
+				</div>
+			)}
 		</div>
 	);
 }
