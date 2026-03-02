@@ -1,6 +1,7 @@
 // file to be deleted
 export const gitUser = {
     id: 0,
+    avatarUrl: "",
     name: "",
     username: "", // = login
     userUrl: "",

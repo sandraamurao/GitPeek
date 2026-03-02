@@ -1,30 +1,45 @@
 import { useState } from "react";
 import "./App.css";
 import SearchBar from "./components/SearchBar";
+import ProfileCard from "./components/ProfileCard";
 
 function App() {
 	const [gitUser, setUser] = useState("");
+	const [errorRequest, setErrorRequest] = useState(null);
 	const [gitUserRepos, setUserRepos] = useState("");
 
 	const searchUser = async (username) => {
-		const response = await fetch(`https://api.github.com/users/${username}`);
-		const data = await response.json();
-		console.log(data);
+		setErrorRequest(null);
 
-		// Get necessary data only
-		const user = {
-			id: data.id,
-			name: data.name,
-			username: data.login,
-			userUrl: data.url,
-			followers: data.followers,
-			following: data.following,
-			reposUrl: data.url,
-			publicRepos: data.public_repos, // number of public repos
-		};
-		console.log("user", user);
+		try {
+			const response = await fetch(`https://api.github.com/users/${username}`);
 
-		setUser(user);
+			if (!response.ok) {
+				throw new Error("User not found");
+			}
+
+			const data = await response.json();
+			console.log(data);
+
+			// Get necessary data only
+			const user = {
+				id: data.id,
+        avatarUrl: data.avatar_url,
+				name: data.name,
+				username: data.login,
+				userUrl: data.html_url,
+				followers: data.followers,
+				following: data.following,
+				reposUrl: data.url,
+				publicRepos: data.public_repos, // number of public repos
+			};
+			console.log("user", user);
+
+			setUser(user);
+		} catch (error) {
+			setErrorRequest(error.message);
+			setUser(null);
+		}
 	};
 
 	const getUserRepos = () => {};
@@ -45,11 +60,14 @@ function App() {
 			{/* Search Bar */}
 			<SearchBar submitSearch={searchUser}></SearchBar>
 
-			{/* Start searching message */}
+			{/* If user not found message */}
+			  {errorRequest && <div> Are you sure this dude exists? ;/ </div>}
+			
+      {/* User name, full name, git url (ProfileCard) */}
+       {gitUser && <ProfileCard gitUser={gitUser}></ProfileCard>}
+        
 
-			{/* User name, full name, git url */}
-
-			{/* num of repos, followers, following */}
+			{/* num of repos, followers, following (StatsRow) */}
 
 			{/* top repos */}
 		</div>

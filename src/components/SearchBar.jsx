@@ -12,7 +12,7 @@ function SearchBar({ submitSearch }) {
 
 	return (
 		<div>
-			<form onSubmit={handleSubmit} className="form-container">
+			<form onSubmit={handleSubmit} className="form-container ">
 				<input
 					type="text"
 					value={username}
@@ -20,7 +20,7 @@ function SearchBar({ submitSearch }) {
 					placeholder="Enter a GitHub username..."
                     onChange={(e) => setUsername(e.target.value)}
 				/>
-				<button type="submit"> search button </button>
+				<button type="submit"> search </button>
 			</form>
 		</div>
 	);
