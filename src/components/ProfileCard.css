@@ -1,0 +1,46 @@
+@reference "tailwindcss";
+
+.profile-container {
+	@apply flex 
+    flex-row 
+    items-start 
+    gap-8 
+    bg-[#211b28]
+    border
+    rounded-lg
+    border-[#dc16b4] 
+	shadow-[0_8px_20px_#dc16b440] 
+    p-5 
+    mb-15
+    max-[500px]:flex-col 
+    max-[500px]:items-center;
+}
+
+.testcolor{
+    color: #f54c9b;
+}
+
+.avatar-img {
+	@apply 
+    w-32 
+    h-32
+    rounded-full
+    object-cover
+    border-4
+    border-[#600b3f] 
+    shadow-lg;
+}
+
+.user-url {
+    @apply 
+    flex
+    flex-wrap
+    items-center
+    justify-between
+    gap-3
+    p-3
+    bg-[#e649eb] 
+    rounded-lg
+    hover:opacity-90
+    text-base
+}

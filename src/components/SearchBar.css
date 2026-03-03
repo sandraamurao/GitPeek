@@ -30,7 +30,8 @@
 }
 
 .search-btn {
-	@apply border-[#991bc7] 
+	@apply
+	border-[#991bc7] 
 	bg-[#991bc7] 
 	p-3 
 	rounded-lg 

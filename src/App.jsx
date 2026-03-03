@@ -52,7 +52,7 @@ function App() {
 	async function getUserRepos(url) {
 		let repos = [];
 		try {
-			const response = await fetch(`${url}?sort=stars&per_page=6`);
+			const response = await fetch(`${url}?sort=stars&per_page=6`); // Gets top 6 starred repos
 
 			if (!response.ok) {
 				throw new Error("Repositories not found");
