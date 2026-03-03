@@ -19,7 +19,7 @@ body {
 }
 
 .header-p-text {
-	@apply font-['Space_Grotesk'] mt-4;
+	@apply font-['Space_Grotesk'] mt-4 text-xl;
 }
 
 .search-container {

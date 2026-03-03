@@ -1,19 +1,49 @@
+import "./Repos.css";
+import { Code2, GitFork, Star, Eye } from "lucide-react";
+
 function Repos({ repos }) {
-	console.log("1repos", repos);
+	const langColors = {
+		JavaScript: "#e51313",
+		TypeScript: "#f8e409",
+		Python: "#e58613",
+		Rust: "#0e14d0",
+		Go: "#d6168c",
+		CSS: "#d86771",
+		HTML: "#9916d6",
+		Java: "#1663d6",
+		"C++": "#16ccd6",
+		Ruby: "#34e89a",
+	};
+
 	return (
 		<>
-			<h1 className="mt-15 mb-8 text-3xl max-[260px]:text-lg"> TOP REPOSITORIES </h1>
-			<div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+			<h1 className="header"> TOP REPOSITORIES </h1>
+			<div className="repo-container">
 				{repos.map((r) => (
 					<a key={r.id} href={r.url} target="_blank" rel="noreferrer">
-						<div className="w-full border p-6 rounded-lg overflow-auto">
-							<div className="text-2xl"> {r.name} </div>
-							<div className="text-lg"> {r.description} </div>
-							<div className="mt-10 flex flex-row max-[300px]:flex-col gap-5 items-center justify-start">
-							    {r.language && <div className="text-lg"> {r.language} </div>} 
-								<div> {r.forks} </div>
-								<div> {r.starsCount} </div>
-								<div> {r.watchersCount} </div>
+						<div className="repo-card">
+							<div className="repo-name"> {r.name} </div>
+							<div className="text-md"> {r.description} </div>
+							<div className="repo-stats">
+								{r.language && (
+									<div className="text-lg flex flex-row items-center gap-2">
+										<Code2 
+										size={17} 
+										color={langColors[r.language]  || "#ffffff"} 
+										strokeWidth={2.5}/> 
+										{r.language}
+									</div>
+								)}
+								<div className="flex flex-row items-center gap-2">
+									<GitFork size={17} color="#8443c9"/> {r.forks}
+								</div>
+								<div className="flex flex-row items-center gap-2">
+									<Star size={17} color="#ebd806" />
+									{r.starsCount}
+								</div>
+								<div className="flex flex-row items-center gap-2">
+									<Eye size={17} color="#dec29a"/> {r.watchersCount}
+								</div>
 							</div>
 						</div>
 					</a>
