@@ -16,9 +16,6 @@
     max-[500px]:items-center;
 }
 
-.testcolor{
-    color: #f54c9b;
-}
 
 .avatar-img {
 	@apply 

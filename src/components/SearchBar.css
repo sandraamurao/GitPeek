@@ -25,9 +25,6 @@
 	focus:outline-none;
 }
 
-.testcolor {
-	color: #ffffff;
-}
 
 .search-btn {
 	@apply

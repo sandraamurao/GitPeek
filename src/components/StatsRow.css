@@ -1,0 +1,24 @@
+@reference "tailwindcss";
+
+.stats-container {
+    @apply 
+    flex 
+    flex-row 
+    max-[590px]:flex-wrap 
+    items-center 
+    justify-center 
+    gap-10;
+}
+
+.stat-card {
+    @apply 
+    flex 
+    flex-col 
+    w-full 
+    bg-[#211b28]
+    border
+    rounded-lg
+    p-8 
+    items-center
+    gap-y-4;
+}
