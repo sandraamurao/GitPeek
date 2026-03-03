@@ -37,7 +37,6 @@ function App() {
 					reposUrl: data.repos_url,
 					publicRepos: data.public_repos, // number of public repos
 				};
-				console.log("user", user);
 
 				setUser(user);
 
@@ -60,7 +59,6 @@ function App() {
 			}
 
 			const data = await response.json();
-			console.log("data", data);
 
 			data.forEach((d) => {
 				repos.push({
@@ -79,7 +77,6 @@ function App() {
 			console.error(error.message);
 		}
 	}
-	console.log("gitUser", gitUser);
 
 	return (
 		<div className="app-container">
