@@ -2,7 +2,7 @@
 
 body {
 	background-color: rgb(10, 10, 25);
-	color: white;
+	color: white; /* for most text */
 	margin: 3rem;
 }
 
@@ -10,12 +10,18 @@ body {
 	@apply w-full max-w-6xl mx-auto;
 }
 
-.search-container {
-	@apply flex flex-row items-center justify-center gap-10;
+.header {
+	@apply flex flex-col items-center justify-center p-6;
 }
 
-@media (max-width: 200px) {
-	.h1-text {
-		@apply flex flex-col;
-	}
+.h1-text {
+	@apply font-['Syne'] text-[45px] flex flex-wrap;
+}
+
+.header-p-text {
+	@apply font-['Space_Grotesk'] mt-4;
+}
+
+.search-container {
+	@apply flex flex-row items-center justify-center gap-10;
 }

@@ -84,12 +84,12 @@ function App() {
 	return (
 		<div className="app-container">
 			{/* Header */}
-			<div className="flex flex-col items-center justify-center p-6">
-				<h1 className="font-['Syne'] text-[45px] flex flex-wrap">
+			<div className="header">
+				<h1 className="h1-text">
 					git<span className="text-[#228cf6] text-[49px]">.</span>pee
 					<span className="text-[#22f65b]">k</span>
 				</h1>
-				<p className="font-['Space_Grotesk'] mt-4 ">
+				<p className="header-p-text">
 					Search for any GitbHub user to view their profile and repositories
 				</p>
 			</div>
