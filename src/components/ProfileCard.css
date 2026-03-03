@@ -17,6 +17,10 @@
     ;
 }
 
+.testcolor {
+    color: #11cb5e;
+}
+
 .profile-name {
     @apply text-3xl max-[365px]:text-[14px] font-['Orbitron'] font-semibold;
 }

@@ -32,6 +32,10 @@ function App() {
 					name: data.name,
 					username: data.login,
 					userUrl: data.html_url,
+					bio: data.bio,
+					location: data.location,
+					company: data.company,
+					blog: data.blog, // personal website / blog
 					followers: data.followers,
 					following: data.following,
 					reposUrl: data.repos_url,
