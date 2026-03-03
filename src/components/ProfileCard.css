@@ -10,7 +10,7 @@
     rounded-lg
     border-[#dc16b4] 
 	shadow-[0_8px_20px_#dc16b440] 
-    p-5 
+    p-7  
     mb-15
     max-[500px]:flex-col 
     max-[500px]:items-center;
