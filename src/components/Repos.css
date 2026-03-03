@@ -5,7 +5,7 @@
     mt-15 
     mb-8 
     text-3xl 
-    max-[260px]:text-lg 
+    max-[350px]:text-2xl 
     font-['Orbitron']
     font-medium;
 }

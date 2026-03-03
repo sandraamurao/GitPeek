@@ -17,7 +17,7 @@ function Repos({ repos }) {
 
 	return (
 		<>
-			<h1 className="header"> TOP REPOSITORIES </h1>
+			<h1 className="header "> TOP REPOSTORIES</h1>
 			<div className="repo-container">
 				{repos.map((r) => (
 					<a key={r.id} href={r.url} target="_blank" rel="noreferrer">

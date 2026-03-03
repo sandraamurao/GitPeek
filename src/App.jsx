@@ -83,8 +83,8 @@ function App() {
 			{/* Header */}
 			<div className="header">
 				<h1 className="h1-text">
-					git<span className="text-[#228cf6] text-[49px]">.</span>pee
-					<span className="text-[#22f65b]">k</span>
+					git<span className="text-[#228cf6] text-[49px]">.</span>
+					<span>pee<span className="text-[#22f65b]">k</span> </span>
 				</h1>
 				<p className="header-p-text">
 					Search for any GitbHub user to view their profile and repositories
