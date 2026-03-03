@@ -1,21 +1,21 @@
 @reference "tailwindcss";
 
 body {
-  background-color: rgb(10, 10, 25);
-  color: white;
-  margin: 3rem;
+	background-color: rgb(10, 10, 25);
+	color: white;
+	margin: 3rem;
 }
 
 .app-container {
-  @apply w-full max-w-6xl mx-auto;
+	@apply w-full max-w-6xl mx-auto;
 }
 
 .search-container {
-  @apply flex flex-row items-center justify-center gap-10 ;
+	@apply flex flex-row items-center justify-center gap-10;
 }
 
 @media (max-width: 200px) {
-  .h1-text {
-    @apply flex flex-col;
-  }
+	.h1-text {
+		@apply flex flex-col;
+	}
 }

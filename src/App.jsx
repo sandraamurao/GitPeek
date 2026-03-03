@@ -72,7 +72,6 @@ function App() {
 				});
 			});
 			setUserRepos(repos);
-
 		} catch (error) {
 			console.error(error.message);
 		}
@@ -83,8 +82,10 @@ function App() {
 		<div className="app-container">
 			{/* Header */}
 			<div className="flex flex-col items-center justify-center p-6">
-				<h1 className="text-[45px]"> git.peek </h1>
-				<p className="mt-4">
+				<h1 className="font-['Syne'] text-[45px]">
+					git<span className="text-[#228cf6] text-[49px]">.</span>pee<span className="text-[#22f65b]">k</span> 
+				</h1>
+				<p className="font-['Space_Grotesk'] mt-4 ">
 					Search for any GitbHub user to view their profile and repositories
 				</p>
 			</div>
