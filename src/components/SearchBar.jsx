@@ -1,5 +1,6 @@
 import "./SearchBar.css";
 import { useState } from "react";
+import { Search } from "lucide-react"
 
 function SearchBar({ submitSearch }) {
 	const [username, setUsername] = useState("");
@@ -20,7 +21,7 @@ function SearchBar({ submitSearch }) {
 					placeholder="Enter a GitHub username..."
                     onChange={(e) => setUsername(e.target.value)}
 				/>
-				<button type="submit"> search </button>
+				<button type="submit" className="search-btn "> <Search size={16} color="#ffffff" ></Search> </button>
 			</form>
 		</div>
 	);

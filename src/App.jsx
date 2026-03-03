@@ -12,38 +12,41 @@ function App() {
 
 	async function searchUser(username) {
 		setErrorRequest(null);
+		if (username != "") {
+			try {
+				const response = await fetch(
+					`https://api.github.com/users/${username}`,
+				);
 
-		try {
-			const response = await fetch(`https://api.github.com/users/${username}`);
+				if (!response.ok) {
+					throw new Error("User not found");
+				}
 
-			if (!response.ok) {
-				throw new Error("User not found");
+				const data = await response.json();
+				console.log(data);
+
+				// Get necessary data only
+				const user = {
+					id: data.id,
+					avatarUrl: data.avatar_url,
+					name: data.name,
+					username: data.login,
+					userUrl: data.html_url,
+					followers: data.followers,
+					following: data.following,
+					reposUrl: data.repos_url,
+					publicRepos: data.public_repos, // number of public repos
+				};
+				console.log("user", user);
+
+				setUser(user);
+
+				// Get User's Repos
+				getUserRepos(user.reposUrl);
+			} catch (error) {
+				setErrorRequest(error.message);
+				setUser(null);
 			}
-
-			const data = await response.json();
-			console.log(data);
-
-			// Get necessary data only
-			const user = {
-				id: data.id,
-				avatarUrl: data.avatar_url,
-				name: data.name,
-				username: data.login,
-				userUrl: data.html_url,
-				followers: data.followers,
-				following: data.following,
-				reposUrl: data.repos_url,
-				publicRepos: data.public_repos, // number of public repos
-			};
-			console.log("user", user);
-
-			setUser(user);
-
-			// Get User's Repos
-			getUserRepos(user.reposUrl);
-		} catch (error) {
-			setErrorRequest(error.message);
-			setUser(null);
 		}
 	}
 
@@ -82,8 +85,9 @@ function App() {
 		<div className="app-container">
 			{/* Header */}
 			<div className="flex flex-col items-center justify-center p-6">
-				<h1 className="font-['Syne'] text-[45px]">
-					git<span className="text-[#228cf6] text-[49px]">.</span>pee<span className="text-[#22f65b]">k</span> 
+				<h1 className="font-['Syne'] text-[45px] flex flex-wrap">
+					git<span className="text-[#228cf6] text-[49px]">.</span>pee
+					<span className="text-[#22f65b]">k</span>
 				</h1>
 				<p className="font-['Space_Grotesk'] mt-4 ">
 					Search for any GitbHub user to view their profile and repositories
