@@ -45,11 +45,19 @@
     mt-10 
     flex 
     flex-row 
-    max-[300px]:flex-col
+    max-[425px]:flex-wrap
     gap-5 
     items-center 
     justify-start
     text-[#a9aeb1];
+}
+
+.repo-content {
+    @apply
+    flex 
+    flex-row 
+    items-center 
+    gap-2;
 }
 
 .testcolor {

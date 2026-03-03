@@ -26,7 +26,7 @@ function Repos({ repos }) {
 							<div className="text-md"> {r.description} </div>
 							<div className="repo-stats">
 								{r.language && (
-									<div className="text-lg flex flex-row items-center gap-2">
+									<div className="text-lg repo-content">
 										<Code2 
 										size={17} 
 										color={langColors[r.language]  || "#ffffff"} 
@@ -34,14 +34,14 @@ function Repos({ repos }) {
 										{r.language}
 									</div>
 								)}
-								<div className="flex flex-row items-center gap-2">
+								<div className="repo-content">
 									<GitFork size={17} color="#8443c9"/> {r.forks}
 								</div>
-								<div className="flex flex-row items-center gap-2">
+								<div className="repo-content">
 									<Star size={17} color="#ebd806" />
 									{r.starsCount}
 								</div>
-								<div className="flex flex-row items-center gap-2">
+								<div className="repo-content">
 									<Eye size={17} color="#dec29a"/> {r.watchersCount}
 								</div>
 							</div>
