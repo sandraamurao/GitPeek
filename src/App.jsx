@@ -4,14 +4,16 @@ import SearchBar from "./components/SearchBar";
 import ProfileCard from "./components/ProfileCard";
 import StatsRow from "./components/StatsRow";
 import Repos from "./components/Repos";
+import notExist from './assets/he-does-not-exist-twin.gif';
 
 function App() {
 	const [gitUser, setUser] = useState("");
-	const [errorRequest, setErrorRequest] = useState(null);
+	const [errorUserRequest, setErrorUserRequest] = useState(null);
 	const [gitUserRepos, setUserRepos] = useState([]);
 
 	async function searchUser(username) {
-		setErrorRequest(null);
+		setErrorUserRequest(null);
+
 		if (username != "") {
 			try {
 				const response = await fetch(
@@ -47,7 +49,7 @@ function App() {
 				// Get User's Repos
 				getUserRepos(user.reposUrl);
 			} catch (error) {
-				setErrorRequest(error.message);
+				setErrorUserRequest(error.message);
 				setUser(null);
 			}
 		}
@@ -88,7 +90,9 @@ function App() {
 			<div className="header">
 				<h1 className="h1-text">
 					git<span className="text-[#228cf6] text-[49px]">.</span>
-					<span>pee<span className="text-[#22f65b]">k</span> </span>
+					<span>
+						pee<span className="text-[#22f65b]">k</span>{" "}
+					</span>
 				</h1>
 				<p className="header-p-text">
 					Search for any GitbHub user to view their profile and repositories
@@ -99,7 +103,11 @@ function App() {
 			<SearchBar submitSearch={searchUser}></SearchBar>
 
 			{/* If user not found message */}
-			{errorRequest && <div> Are you sure this dude exists? ;/ </div>}
+			{errorUserRequest && (
+				<div>
+					<img src={notExist} alt="" />
+				</div>
+			)}
 
 			{gitUser && (
 				<div>
