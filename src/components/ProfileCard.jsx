@@ -6,6 +6,8 @@ function ProfileCard({ gitUser }) {
 		<div className="profile-container ">
 			<img src={gitUser.avatarUrl} className="avatar-img" />
 			<div className="flex flex-col">
+				
+				{/* Profile name and username  */}
 				<div className="profile-name">
 					{gitUser.name ? (
 						<h1> {gitUser.name} </h1>
@@ -13,10 +15,14 @@ function ProfileCard({ gitUser }) {
 						<h1> {gitUser.username} </h1>
 					)}
 				</div>
-				<div className="text-base username"> @{gitUser.username} </div>
+				<div className="username"> @{gitUser.username} </div>
+				
+				{/* Bio, if there is  */}
 				{gitUser.bio && (
 					<div className="text-thin text-[#bababa] mb-6">{gitUser.bio}</div>
 				)}
+
+				{/* Check first if there is location, company, or personal blog/website  */}
 				{(gitUser.location || gitUser.company || gitUser.blog) && (
 					<div className="flex flex-wrap gap-8 mb-7">
 						{/* Location */}
@@ -26,6 +32,7 @@ function ProfileCard({ gitUser }) {
 								{gitUser.location}
 							</div>
 						)}
+
 						{/* Company */}
 						{gitUser.company && (
 							<div className="flex flex-wrap items-center gap-2">
@@ -33,10 +40,12 @@ function ProfileCard({ gitUser }) {
 								{gitUser.company}
 							</div>
 						)}
+
 						{/* Personal blog/website */}
 						{gitUser.blog && (
 							<div className="flex flex-wrap items-center gap-2">
-								<Globe size={16} color="#11cb5e" /> {gitUser.blog}
+								<Globe size={16} color="#11cb5e" /> 
+								{gitUser.blog}
 							</div>
 						)}
 					</div>

@@ -2,7 +2,8 @@ import "./Repos.css";
 import { Code2, GitFork, Star, Eye } from "lucide-react";
 
 function Repos({ repos }) {
-	const langColors = {
+	// Color code for language icon
+	const langColors = { 
 		JavaScript: "#e51313",
 		TypeScript: "#f8e409",
 		Python: "#e58613",
@@ -17,14 +18,17 @@ function Repos({ repos }) {
 
 	return (
 		<>
-			<h1 className="header "> TOP REPOSTORIES</h1>
+			<h1 className="header"> TOP REPOSTORIES</h1>
 			<div className="repo-container">
 				{repos.map((r) => (
 					<a key={r.id} href={r.url} target="_blank" rel="noreferrer">
+
 						<div className="repo-card">
 							<div className="repo-name"> {r.name} </div>
 							<div className="text-md"> {r.description} </div>
 							<div className="repo-stats">
+
+								{/* Language of repo */}
 								{r.language && (
 									<div className="text-lg repo-content">
 										<Code2 
@@ -34,13 +38,19 @@ function Repos({ repos }) {
 										{r.language}
 									</div>
 								)}
+								
+								{/* Forks */}
 								<div className="repo-content">
 									<GitFork size={17} color="#8443c9"/> {r.forks}
 								</div>
+
+								{/* Stargazers */}
 								<div className="repo-content">
 									<Star size={17} color="#ebd806" />
 									{r.starsCount}
 								</div>
+
+								{/* Watchers */}
 								<div className="repo-content">
 									<Eye size={17} color="#dec29a"/> {r.watchersCount}
 								</div>

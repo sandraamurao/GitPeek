@@ -1,24 +1,20 @@
 @reference "tailwindcss";
 
 .profile-container {
-	@apply flex 
+	@apply 
+    flex 
     flex-row 
     items-start 
     gap-8 
+    p-7  
+    mb-15
     bg-[#211b28]
     border
     rounded-lg
     border-[#dc16b4] 
 	shadow-[0_8px_20px_#dc16b440] 
-    p-7  
-    mb-15
     max-[555px]:flex-col 
-    max-[555px]:items-center
-    ;
-}
-
-.testcolor {
-    color: #11cb5e;
+    max-[555px]:items-center;
 }
 
 .profile-name {
@@ -26,7 +22,7 @@
 }
 
 .username {
-    @apply mb-8 max-[350px]:text-sm text-[#14a8e8];
+    @apply text-base mb-8 max-[350px]:text-sm text-[#14a8e8];
 }
 
 

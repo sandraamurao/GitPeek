@@ -38,7 +38,7 @@
 }
 
 .repo-name {
-    @apply text-2xl font-['Orbitron'] font-semibold  text-[#14a8e8];
+    @apply text-2xl font-['Orbitron'] font-semibold text-[#14a8e8];
 }
 
 .repo-stats {
@@ -59,8 +59,4 @@
     flex-row 
     items-center 
     gap-2;
-}
-
-.testcolor {
-    color: #8443c9;
 }

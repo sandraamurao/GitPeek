@@ -6,7 +6,7 @@ function SearchBar({ submitSearch }) {
 	const [username, setUsername] = useState("");
 
 	function handleSubmit(event) {
-		event.preventDefault();
+		event.preventDefault(); // stops the refresh to prevent losing state
 
 		submitSearch(username);
 	}

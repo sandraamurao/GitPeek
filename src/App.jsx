@@ -4,7 +4,7 @@ import SearchBar from "./components/SearchBar";
 import ProfileCard from "./components/ProfileCard";
 import StatsRow from "./components/StatsRow";
 import Repos from "./components/Repos";
-import notExist from './assets/he-does-not-exist-twin.gif';
+import notExist from "./assets/he-does-not-exist-twin.gif";
 
 function App() {
 	const [gitUser, setUser] = useState("");
@@ -113,8 +113,10 @@ function App() {
 				<div>
 					{/* User name, full name, git url (ProfileCard) */}
 					<ProfileCard gitUser={gitUser}></ProfileCard>
+
 					{/* num of repos, followers, following (StatsRow) */}
 					<StatsRow gitUser={gitUser}></StatsRow>
+
 					{/* top repos */}
 					<Repos repos={gitUserRepos}></Repos>
 				</div>
