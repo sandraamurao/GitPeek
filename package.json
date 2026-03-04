@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://sandraamurao.github.io/git-peek",
+  "homepage": "https://sandraamurao.github.io/GitPeek",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
